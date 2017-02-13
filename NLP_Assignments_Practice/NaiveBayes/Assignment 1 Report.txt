@@ -1,0 +1,71 @@
+Assignment 1 - Naive Bayes Classification Report
+
+Name: Aditya Ramachandra Desai
+
+1. Performance on the development data with 100% of the training data
+1a. Spam Precision: 0.993
+1b. Spam Recall: 0.979
+1c. Spam F1 score: 0.985
+1d. Ham Precision: 0.950
+1e. Ham Recall: 0.982
+1f. Ham F1 score: 0.967
+
+2-by-2	Contingency	Table
+[[1473, 27], [76, 3599]]
+HAM Precision:0.9509360877985797,Recall:0.982,F1Score:0.9662184322728764
+SPAM Precision:0.992553778268064,Recall:0.9793197278911565,F1Score:0.9858923435145871
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2. Performance on the development data with 10% of the training data
+2a. Spam Precision: 0.990
+2b. Spam Recall: 0.952
+2c. Spam F1 score: 0.970
+2d. Ham Precision: 0.892
+2e. Ham Recall: 0.978
+2f. Ham F1 score: 0.932
+
+[[1463, 37], [178, 3497]]
+[HAM]Precision:0.8915295551492992,Recall:0.9753333333333334,F1Score:0.9315504616364215
+[SPAM]Precision:0.9895302773061686,Recall:0.9515646258503402,F1Score:0.9701761686780414
+
+Observations : 
+	a. Scores decrease when 10% of the training data is used to build the model. The main reason would be that, we will not be having all possible tokens in our model and most of the tokens in dev are un-noticied. 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+3. Description of enhancement(s) you tried (e.g., different approach(es) to smoothing, treating common words differently, dealing with unknown words differently):
+	I have used the following approaches as the modifications/enhancements. But I did not observe any increase in the parameters like Precision, Recall and F1 scores
+	1. Removal of Stop words - I took help of NLTK to identify the English Stop Words and formed a List in my nblearn_modified.py. This list also consists of most repeated words in the corpus in both ham and spam like 'Subject:'. 
+	2. Removal of Numbers - I saw there are large number of numbers that were marked as valid token and I assumed that this might skew the probability of the classifier. So I have removed all the numbers and did not includ them in the dictionary or nbmodel_modified.txt
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+4. Best performance results based on enhancements. Note that these could be the same or worse than the standard implementation.
+4a. Spam Precision: 0.960
+4b. Spam Recall: 0.988
+4c. Spam F1 score: 0.973
+4d. Ham Precision: 0.968
+4e. Ham Recall: 0.898
+4f. Ham F1 score: 0.932
+
+Observations : 
+	a. I expected the scores to go up with removal of common words and stop words, but I got lesser scores. May be the stop words I choose were not the proper subset for this corpus.  
+
+2-by-2	Contingency	Table
+[[1347, 153], [45, 3630]]
+[HAM]Precision:0.9676724137931034,Recall:0.898,F1Score:0.9315352697095436
+[SPAM]Precision:0.9595559080095163,Recall:0.9877551020408163,F1Score:0.9734513274336284
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Files in this directory
+
+1. Performance on the development data with 100% of the training data
+	a. nblearn.py
+	b. nbclassify.py
+	c. nbmodel.txt is the model generated
+	d. nboutput.txt is the final classified output generated
+2. Performance on the development data with 10% of the training data
+	a. nblearn2_10Perc.py
+	b. nbclassify_10Perc.py
+	c. nbmodel_10Perc.txt is the model generated
+	d. nboutput_10Perc.txt is the final classified output generated
+4. Best performance results based on enhancements. Note that these could be the same or worse than the standard implementation.
+	a. nblearn_modified.py
+	b. nbclassify_modified.py
+	c. nbmodel_modified.txt is the model generated
+	d. nboutput_modified.txt is the final classified output generated

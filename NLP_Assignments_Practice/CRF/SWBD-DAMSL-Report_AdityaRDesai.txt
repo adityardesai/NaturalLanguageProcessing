@@ -1,0 +1,39 @@
+Assignment 3 Report
+
+Name: Aditya Ramachandra Desai
+USC ID: 5246-4961-15
+
+1. If you included files other than baseline_crf.py, advanced_crf.py, evaluate_model.py, and hw3_corpus_tool.py, or modified hw3_corpus_tool.py please describe what the files do and/or your modifications to hw3_corpus_tool.py.
+	
+	Source Code consists of the following Python scripts followed by their descriptions
+	
+	a. DialogueAnalyzer.py - This Python script has DialogueAnalyzer class with all the methods related to Basic and Advanced implementations. These methods can be used in other Python scripts for execution.
+	b. baseline_crf.py - This Python script makes use of DialogueAnalyzer class of DialogueAnalyzer.py to create a "baseline_crf object" to implement the methods for baseline feature set.
+	Usage :: baseline_crf.py <INPUT_DIR_TRAINING_PATH> <DEV/TEST_DIR_TRAINING_PATH> <OUTPUTFILE>
+	c. advanced_crf.py - This Python script makes use of DialogueAnalyzer class of DialogueAnalyzer.py to create a "advanced_crf object" to implement the methods for advanced feature set.
+	Usage :: advanced_crf.py <INPUT_DIR_TRAINING_PATH> <DEV/TEST_DIR_TRAINING_PATH> <OUTPUTFILE>
+	d. evaluate.py - This Python script is used to calculate the accuracy of the model on test/dev data set.
+	Usage :: evaluate.py <DEV/TEST_DIR_TRAINING_PATH> <OUTPUTFILE_OF_BASIC_OR_ADVANCED_MODEL>
+	e. No changes in hw3_corpus_tool.py. 
+
+
+2. Describe how you evaluated your baseline and advanced features
+   Usage of the dataset - The dataset provided was randomly divided into 75 % for training and 25 % as dev dataset.
+   Baseline Features - With 75 % training data, 4 features were extracted as per the specifications of the assignment and a basiline CRF model was generated. This model when tested on dev data resulted in the accuracy of 70.09 % (+/- 0.5 % variance) with 100 iterations.
+   Advanced Features - With 75 % training data, along with 4 baseline features, I used 5 additional features to train the advanced CRF model.This model when tested on dev data resulted in the accuracy of 71.84 % (+/- 0.5 % variance) with 100 iterations.
+
+3. Describe your advanced feature set.
+   The advance feature set consists of following features
+   a. 4 baseline features as mentioned in the baseline feature set of the assignmnet viz FU(First Utterance),SC(Speaker Change),TOKEN_(All tokens),POS_(All POS) for a given utterance.
+   b. CS(Continous Speaker) - If the Speaker is not changed, then I have considered as one of the advanced feature. 
+   c. LU(Last Utterance) - If the utterence is the last utterance of the CSV file, the I have included this as one of the advanced feature.
+   d. NUM(Numbers) - If there are any numbers in the text of the utterance then, then it becomes advanced feature. This actually boosted the accuracy more than other advanced features. 
+   e. FTOK and LTOK(First Token and Last Token) - I have added the first and last tokens of the utterance to the advanced feature set. This did not make much difference in the accuracy.
+   f. FPOS and LPOS(First POS and Last POS) - I have added the first and last POS for respective tokens of the utterance to the advanced feature set. This did not make much difference in the accuracy. 
+    
+
+4. If you tried alternate advanced feature sets, please describe them.
+   I have made an attempt to include 2-gram(Bi-agram) Tokens and POSs in the advanced feature set. But with the addition of above 5 features and Bi-agram reduced the accuracy from 71.84 % to 71.77 % with 100 iterations. Hence this part is commented in the code and is available in the DialogueAnalyzer.py inside a function "analyzeUtteranceAdv".
+
+5. Accuracy of baseline features was: 70.0855897292325% 
+6. Accuracy of advanced features was: 71.84337879454465%

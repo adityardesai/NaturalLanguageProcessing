@@ -1,0 +1,93 @@
+Assignment 2 Report
+
+Name : Aditya Ramachandra Desai
+USC ID : 5246-4961-15
+Title : Report on Perceptron Algorithm to classify Spam and Ham emails.
+
+Part I.
+
+1. Performance of standard perceptron on the development data with 100% of the training data
+1a. spam precision: 0.986
+1b. spam recall: 0.984
+1c. spam F1 score: 0.985
+1d. ham precision: 0.960
+1e. ham recall: 0.967
+1f. ham F1 score: 0.963
+
+Standard Perceptron - 100%
+2-by-2 TruthTable/Confusion Matrix
+[[1450, 50], [60, 3615]]                                                                                            HAM Precision:0.9602649006622517,Recall:0.9666666666666667,F1Score:0.9634551495016612                                                 
+SPAM Precision:0.9863574351978172,Recall:0.9836734693877551,F1Score:0.9850136239782017
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2. Performance of averaged perceptron on the development data with 100% of the training data
+2a. spam precision: 0.983
+2b. spam recall: 0.986
+2c. spam F1 score: 0.984
+2d. ham precision:0.964
+2e. ham recall: 0.959
+2f. ham F1 score: 0.962
+
+Average Perceptron - 100%
+2-by-2 TruthTable/Confusion Matrix
+[[1438, 62], [53, 3622]]                                                                                            HAM Precision:0.9644533869885983,Recall:0.9586666666666667,F1Score:0.9615513206285522                                                 
+SPAM Precision:0.9831704668838219,Recall:0.985578231292517,F1Score:0.9843728767495583  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Part II.
+
+3. Performance of standard perceptron on the development data with 10% of the training data
+3a. spam precision: 0.967
+3b. spam recall: 0.910
+3c. spam F1 score: 0.938
+3d. ham precision: 0.807
+3e. ham recall: 0.925
+3f. ham F1 score: 0.862
+
+Standard Perceptron - 10%
+2-by-2 TruthTable/Confusion Matrix
+[[1387, 113], [332, 3343]]
+HAM Precision:0.8068644560791157,Recall:0.9246666666666666,F1Score:0.861758310034172
+SPAM Precision:0.9673032407407407,Recall:0.9096598639455782,F1Score:0.9375964100406674
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+4. Performance of averaged perceptron on the development data with 10% of the training data
+4a. spam precision: 0969
+4b. spam recall: 0.910
+4c. spam F1 score: 0.938
+4d. ham precision: 0.807
+4e. ham recall: 0.928
+4f. ham F1 score: 0.864
+
+Average Perceptron - 10%
+2-by-2 TruthTable/Confusion Matrix
+[[1392, 108], [332, 3343]]
+HAM Precision:0.8074245939675174,Recall:0.928,F1Score:0.8635235732009926
+SPAM Precision:0.9687047232686178,Recall:0.9096598639455782,F1Score:0.9382542801010385
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Part III. 
+You are welcome to reuse code you wrote for assignment 1,
+but we would like to know how you handled the following tasks.
+
+
+5. How did you calculate precision, recall and F1 score? If you used a
+separate script, please give the name of the script and describe how
+to run it.
+
+The function, 'evaluate' is used to calculate the F1 Score, Precision and Recall. 
+The function is available in GenericPerceptron.py
+I have referred to video from Stanford University - https://www.youtube.com/watch?v=2akd6uwtowc&ab_channel=OpenCourseOnline
+and also the lectures of CSCI 572. In this funciton, I have checked if the file name has a 'label' and it matches with the assigned 'label' then
+the classification is correct. Any irregularities are identified respectively(like ham identified as spam OR spam identified as ham).
+2-by-2 truthTable/Confusion matrix is created to calculate the F1, precision, recall scores using respective formulas.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+6. How did you separate 10% of the training data? If you used a
+separate script, please give the name of the script and describe how
+to run it. Explain how you or your code choose the files.
+
+I have choosen the 10% files manually. Even for first assignment, I did the same approach and here it is
+I choose 10% of total files and then equally distributed half from all spam files and half from ham files.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
